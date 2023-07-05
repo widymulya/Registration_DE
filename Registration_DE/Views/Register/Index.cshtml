@@ -1,0 +1,69 @@
+﻿@model Register
+
+@{
+    ViewData["Title"] = "Sign Up";
+}
+
+
+@using (Html.BeginForm("Save", "Register", FormMethod.Post, new { enctype = "multipart/form-data", id = "regForm" }))
+{
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="form-group">
+                <div class="col-sm-4 text-left">First Name</div>
+                <div class="col-sm-8 text-left">
+                    @Html.TextBoxFor(a => a.FirstName, new { id = "txtFirst",Value = Model.FirstName, @class = "form-control input-sm" })
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4 text-left">Last Name</div>
+                <div class="col-sm-8 text-left">
+                    @Html.TextBoxFor(a => a.LastName, new { id = "txtLast",Value = Model.LastName, @class = "form-control input-sm" })
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4 text-left">Email Name</div>
+                <div class="col-sm-8 text-left">
+                    @Html.TextBoxFor(a => a.Email, new { id = "txtEmail",Value = Model.Email, @class = "form-control input-sm" })
+                    <span asp-validation-for="Email" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4 text-left">Password</div>
+                <div class="col-sm-8 text-left">
+                    @Html.PasswordFor(a => a.Password, new { id = "txtPassword",Value = Model.Password, @class = "form-control input-sm" })
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4 text-left">Repeat Password</div>
+                <div class="col-sm-8 text-left">
+                    @Html.PasswordFor(a => a.RepeatPassword, new { id = "txtRepeat",Value = Model.RepeatPassword, @class = "form-control input-sm" })
+                    <span asp-validation-for="RepeatPassword" class="text-danger"></span>
+                </div>
+            </div>
+
+            <br />
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary rounded-0">Submit</button>
+            </div>
+
+            <br />
+            <br />
+            <a href="@Url.Action("Index", "Home")" class="elements">
+                <span>Login</span>
+            </a>
+
+            <br />
+            <br />
+
+            <span class="text-danger">@ViewData["message"]</span>
+            
+
+        </div>
+    </div>
+}
+
